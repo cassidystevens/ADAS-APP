@@ -1,3 +1,5 @@
+ADAS App Development
+--------------------------------
 We designed a basic Android application with the following requirements:
 - showcase categories such as Acceleration and Braking Patterns, Cornering Behavior, Speed Consistency, Lane Changes and Drifts, and Wearable Device Metrics
 - display the raw data values from each source for every category (based on the breakdown below)
@@ -35,3 +37,9 @@ Wearable Device Metrics if available:
   - Road Type and Conditions:
     - Data Integration: From various map and terrain databases.
     - Purpose: Assessing driving appropriateness for different road types and conditions.
+
+Team
+---------------------------------
+Cassidy Stevens
+Fardeen Bhimani
+Mindy Cha
