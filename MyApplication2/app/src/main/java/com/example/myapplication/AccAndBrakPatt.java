@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import static android.content.Context.*;
-
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -9,7 +7,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
