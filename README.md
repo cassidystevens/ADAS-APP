@@ -40,6 +40,6 @@ Wearable Device Metrics if available:
 
 Team
 ---------------------------------
-Cassidy Stevens
-Fardeen Bhimani
-Mindy Cha
+- Cassidy Stevens
+- Fardeen Bhimani
+- Mindy Cha
