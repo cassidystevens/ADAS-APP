@@ -42,8 +42,8 @@ Wearable Device Metrics if available:
     - Data Integration: From various map and terrain databases.
     - Purpose: Assessing driving appropriateness for different road types and conditions.
 
-Team
+Team and Contributions:
 ---------------------------------
-- Cassidy Stevens
-- Fardeen Bhimani
-- Mindy Cha
+- Cassidy Stevens: Created the basic structure of the app and the various pages for displaying the data.
+- Fardeen Bhimani: Populated section 5 and its subcategories with data and created a demo video for the app.
+- Mindy Cha: Made improvements to the app and populated sections 1-4 of the app with data.
