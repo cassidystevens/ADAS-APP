@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +12,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
+
 public class HRVAndStrLev extends AppCompatActivity {
 
     Button button1;
+    TextView BPMTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,8 @@ public class HRVAndStrLev extends AppCompatActivity {
         });
 
         button1 = findViewById(R.id.button);
+        BPMTextView = findViewById(R.id.textView3);
+        displayRandomBPM();
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,4 +42,12 @@ public class HRVAndStrLev extends AppCompatActivity {
             }
         });
     }
+
+    private void displayRandomBPM() {
+        // Generate random temperature between 50-100°F
+        int randomBPM = new Random().nextInt(61) + 60; // 50-100 range
+
+        // Display with degree symbol
+        BPMTextView.setText(String.format("%d", randomBPM));
+}
 }
