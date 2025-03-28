@@ -1,6 +1,10 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,22 +18,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
 
-public class WeaCon extends AppCompatActivity {
+public class WeaCon extends AppCompatActivity implements SensorEventListener {
     Button button1;
     TextView temperatureTextView;
     TextView weatherConditionTextView;
-
-    private final String[] weatherConditions = {
-            "Sunny",
-            "Cloudy",
-            "Rainy",
-            "Snowy",
-            "Windy",
-            "Foggy",
-            "Thunderstorm",
-            "Partly Cloudy",
-            "Clear"
-    };
+    private SensorManager sensorManager;
+    private Sensor tempSensor;
 
 
     @Override
@@ -46,8 +40,10 @@ public class WeaCon extends AppCompatActivity {
         button1 = findViewById(R.id.button);
         weatherConditionTextView = findViewById(R.id.textView11);
         temperatureTextView = findViewById(R.id.textView9);
-        displayRandomTemperature();
-        displayRandomWeather();
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        tempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        sensorManager.registerListener(this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,25 +53,30 @@ public class WeaCon extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
+            float temperatureCelsius = event.values[0];
+            float temperatureFahrenheit = (temperatureCelsius * 9/5) + 32;
+            temperatureTextView.setText(String.format("%.1f°F", temperatureFahrenheit));
 
-        private void displayRandomTemperature() {
-            // Generate random temperature between 50-100°F
-            int randomTemp = new Random().nextInt(51) + 50; // 50-100 range
-
-            // Display with degree symbol
-            temperatureTextView.setText(String.format("%d°F", randomTemp));
+            // Simple weather condition based on temperature
+            if (temperatureFahrenheit > 85) {
+                weatherConditionTextView.setText("Sunny");
+            } else if (temperatureFahrenheit > 70) {
+                weatherConditionTextView.setText("Partly Cloudy");
+            } else if (temperatureFahrenheit > 50) {
+                weatherConditionTextView.setText("Cloudy");
+            } else {
+                weatherConditionTextView.setText("Cold");
+            }
+        }
+    }
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Dummy Code
     }
 
-    private void displayRandomWeather() {
-        // Generate and display random temperature
-        int randomTemp = new Random().nextInt(51) + 50; // 50-100 range
-        temperatureTextView.setText(String.format("%d°F", randomTemp));
-
-        // Generate and display random weather condition
-        String randomCondition = weatherConditions[new Random().nextInt(weatherConditions.length)];
-        weatherConditionTextView.setText(randomCondition);
-
-    }
 
 
 }
