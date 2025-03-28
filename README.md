@@ -6,23 +6,23 @@ We designed a basic Android application with the following requirements:
   
 Categories
 ---------------------------------
-Acceleration and Braking Patterns:
+1. Acceleration and Braking Patterns:
 - Data Source: Accelerometers and gyroscopes in various smartphone brands.
 - Purpose: To measure forcefulness and smoothness in acceleration and braking, identifying aggressive or unsafe driving behaviors.
   
-Cornering Behavior:
+2. Cornering Behavior:
 - Data Source: Gyroscopes and GPS across different smartphones.
 - Purpose: Assessing the manner of taking corners. Sharp cornering can indicate risky driving.
   
-Speed Consistency:
+3. Speed Consistency:
 - Data Source: GPS functionality in diverse smartphones.
 - Purpose: Monitoring vehicle speed relative to road types and traffic conditions, identifying speed fluctuations.
   
-Lane Changes and Drifts:
+4. Lane Changes and Drifts:
 - Data Source: Accelerometers and gyroscopes in various smartphones.
 - Purpose: Detecting frequency and smoothness of lane changes to suggest attentive or inattentive driving.
   
-Wearable Device Metrics if available:
+5. Wearable Device Metrics if available:
 - Heart Rate Variability (HRV) and Stress Level:
   - Data Source: A range of wearable devices capable of measuring HRV.
   - Purpose: To monitor the driver's stress level, influencing driving behavior.
